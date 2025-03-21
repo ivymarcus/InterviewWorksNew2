@@ -61,7 +61,7 @@ namespace WebApiWork.Services
         }
 
         /// <summary>
-        /// 新增 商品
+        /// 新增 - 商品
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
@@ -92,6 +92,86 @@ namespace WebApiWork.Services
 
         }
 
+
+        /// <summary>
+        /// 更新 - 商品
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public ResponseModel UpdateProduct(ProductRequestModel model)
+        {
+            ResponseModel responseModel = new ResponseModel();
+            try
+            {
+                // 需確認 欄位是否皆有填寫
+                string checkFileErrMsg = CheckFile(model);
+                if (String.IsNullOrEmpty(checkFileErrMsg))
+                {
+                    responseModel = resp.UpdateProduct(model);
+                }
+                else
+                {
+                    responseModel = ErrorResponse(checkFileErrMsg);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                responseModel.Status = 2;
+                responseModel.Message = $"更新-失敗 訊息如下: {ex.Message}";
+            }
+
+            return responseModel;
+        }
+
+        /// <summary>
+        ///  刪除 - 商品，
+        ///  可以僅提供 ProductName 即可
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public ResponseModel DeleteProduct(ProductRequestModel model)
+        {
+            ResponseModel responseModel = new ResponseModel();
+            try
+            {
+                string checkFileErrMsg = CheckFile(model);
+                if (String.IsNullOrEmpty(checkFileErrMsg))
+                {
+                    responseModel = resp.DeleteProduct(model);
+                }
+                else
+                {
+                    responseModel = ErrorResponse(checkFileErrMsg);
+                }
+            }
+            catch (Exception ex)
+            {
+                responseModel.Status = 2;
+                responseModel.Message = $"更新-失敗 訊息如下: {ex.Message}";
+            }
+
+            return responseModel;
+        }
+
+
+
+
+
+
+
+
+
+
+        /// <summary>
+        /// 判斷 try catch
+        /// </summary>
+        public void CatchMsg()
+        {
+            int a = 5;
+            int b = 0;
+            int c = a / b;
+        }
 
 
     }

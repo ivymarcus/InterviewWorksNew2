@@ -21,9 +21,20 @@ namespace WebApiWork.Controllers
 
             ResponseModel responseModel = new ResponseModel();
             string status = requestModel.Status;
-            if(status == "N")
+            // 新增 - 商品
+            if (status == "N")
             {
                 responseModel = service.CreateProduct(requestModel);
+            }
+            // 更新 - 商品
+            else if (status == "U")
+            {
+                responseModel = service.UpdateProduct(requestModel);
+            }
+            // 刪除 - 商品
+            else if (status == "D")
+            {
+                responseModel = service.DeleteProduct(requestModel);
             }
             else
             {

@@ -154,8 +154,29 @@ namespace WebApiWork.Services
             return responseModel;
         }
 
+        /// <summary>
+        /// 取得 - 全部商品
+        /// </summary>
+        /// <returns></returns>
+        public GetProductModel GetProducts()
+        {
+            GetProductModel responseModel = new GetProductModel();
+            responseModel.ProductModels = new List<ProductModel>();
+            try
+            {
+                responseModel.ProductModels = resp.GetProducts();
+                responseModel.Status = 1;
+                responseModel.Message = "Success";
+            }
+            catch (Exception ex)
+            {
+                responseModel.Status = 2;
+                responseModel.Message = ex.Message;
+                responseModel.ProductModels = null;
+            }
 
-
+            return responseModel;
+        }
 
 
 

@@ -189,8 +189,26 @@ namespace WebApiWork.Repositories
             return responseModel;
         }
 
+        /// <summary>
+        ///  取得 - 全部商品
+        /// </summary>
+        /// <returns></returns>
+        public List<ProductModel> GetProducts()
+        {
+            string sql = @"select 
+                            itm.ProductName,
+                            itm.Explain,
+                            itc.CategoryName,
+                            itm.UnitPrice,
+                            itm.Discount
+                          from Product itm (nolock)
+                          inner join Category itc (nolock)
+                            on itc.CategoryID = itm.CategoryID
+                          order by itm.ProductID desc";
 
-
+            List<ProductModel> responseModel = DapperHelper.Get<ProductModel>(sql);
+            return responseModel;
+        }
 
     }
 }

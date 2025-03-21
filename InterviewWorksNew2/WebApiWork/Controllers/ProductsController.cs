@@ -44,5 +44,13 @@ namespace WebApiWork.Controllers
             return responseModel;
         }
 
+        [HttpGet]
+        [Route("GetProducts")]
+        public GetProductModel GetProductsRequest()
+        {
+            GetProductModel responseModel = service.GetProducts();
+            return responseModel;
+        }
+
     }
 }

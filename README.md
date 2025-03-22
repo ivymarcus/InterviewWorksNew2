@@ -74,6 +74,15 @@ WebApi
 | Message | nvarchar(MAX) | 訊息 |
 | ProductModels | List<> | 商品資訊 |
 
+#### Response Json - ProductModels List<>
+| 欄位 | 型態 | 字數限制 | 說明 |
+| :-- | :-- | :-- |:--|
+| ProductName | string | 50 | 商品品號 |
+| Explain | string | | 商品名稱 |
+| CategoryName | string | 30 | 類別名稱 |
+| UnitPrice | int | | 商品單價 |
+| Discount | float | decimal(2, 2) | 折扣 |
+
 ```json
 {
     "Status": 1,

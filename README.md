@@ -21,6 +21,7 @@ WebApi
 - - -
 
 ### HttpPost
+#### API Url : https://localhost:44313/ProductChanges
 #### Requset Json
 | 欄位 | 型態 | 字數限制 | 說明 |
 | :-- | :-- | :-- |:--|
@@ -67,6 +68,7 @@ WebApi
 - - -
 
 ### HttpGet
+#### API Url : https://localhost:44313/GetProducts
 #### Response Json
 | 欄位 | 型態 | 說明 |
 | :-- | :-- |:--|

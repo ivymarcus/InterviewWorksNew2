@@ -5,13 +5,13 @@ WebApi
 ### 資料表: dbo.Category
 | 資料行名稱 | 資料類型 | 允許null |
 | :-- | :-- |:--:|
-| CategoryID  | int | |
+| CategoryID  | int (primary key) | |
 | CategoryName  | nvarchar(30) |  |
 
 ### 資料表: dbo.Product
 | 資料行名稱 | 資料類型 | 允許null |
 | :-- | :-- |:--:|
-| ProductID | int |  |
+| ProductID | int (primary key) |  |
 | ProductName | nvarchar(50) |  |
 | UnitPrice | int |  |
 | Discount | decimal(2, 2) |  |
